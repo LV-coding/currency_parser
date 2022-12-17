@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
 from win10toast import ToastNotifier
 from time import sleep
 from datetime import datetime
@@ -14,13 +13,8 @@ def get_currency_prices():
         result = []
         for curr in currency:
 
-            ua = UserAgent()
-            headers = {
-                'User-Agent':ua.random
-            }
-
             url = f'https://minfin.com.ua/ua/currency/auction/exchanger/{curr}/buy/lvov/'
-            response = requests.get(url, headers=headers)
+            response = requests.get(url)
 
             soup = BeautifulSoup(response.content, 'html.parser')
             for price in soup.find_all('span', class_='Typography cardHeadlineL align'):
@@ -40,3 +34,4 @@ def get_currency_prices():
 
 if __name__ == '__main__':
     get_currency_prices()
+

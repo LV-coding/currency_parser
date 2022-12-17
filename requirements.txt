@@ -2,7 +2,6 @@ beautifulsoup4==4.11.1
 bs4==0.0.1
 certifi==2022.6.15
 charset-normalizer==2.0.12
-fake-useragent==0.1.11
 idna==3.3
 pypiwin32==223
 pywin32==304
